@@ -1,0 +1,37 @@
+#!/bin/bash
+
+images="
+f20
+f20_with_reinstall
+rawhide
+rawhide_with_reinstall
+"
+
+function smitty() {
+  echo "[INFO] $@"
+  $@
+}
+
+function build() {
+  img=$1
+  echo
+  echo "===> Building $img image..."
+  pushd $img
+  smitty docker build --rm -t $img .
+  popd
+}
+
+function test() {
+  img=$1
+  echo
+  echo "===> Running gotest in $img..."
+  smitty docker run --rm -i -t -u user $img /gotest
+}
+
+for img in $images; do
+  build $img
+done
+
+for img in $images; do
+  test $img
+done

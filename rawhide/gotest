@@ -1,0 +1,22 @@
+#!/bin/bash
+
+pkgs="
+github.com/golang/lint/golint
+github.com/rakyll/drive
+github.com/epeli/hooktftp
+"
+
+function smitty() {
+  echo "[INFO] $@"
+  $@
+}
+
+smitty rpm -qa golang\*
+
+export GOPATH=/home/user/gocode
+mkdir -p $GOPATH/bin
+export PATH=$PATH:$GOPATH/bin
+
+for pkg in $pkgs; do
+  smitty go get $pkg
+done

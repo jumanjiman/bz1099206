@@ -1,0 +1,15 @@
+box: wercker-labs/docker
+build:
+  steps:
+    - script:
+        name: print the docker version
+        code: docker version
+    - script:
+        name: print system-wide docker info
+        code: docker info
+    - script:
+        name: build images
+        code: script/bootstrap
+    - script:
+        name: run the test suite
+        code: script/test

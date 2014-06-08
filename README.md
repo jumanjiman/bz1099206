@@ -13,16 +13,19 @@ the `go get` command finishes successfully.
 One should not have to reinstall the packages to get a working set.
 
 To reproduce the behavior, clone this repo [1] and run
-`script/test` as a user with privileges to run `docker`.
+as a user with privileges to run `docker`:
 
-`script/test` builds four docker images:
+    script/bootstrap
+    script/test
+
+`script/bootstrap` builds four docker images:
 
 * f20
 * f20_with_reinstall
 * rawhide
 * rawhide_with_reinstall
 
-It then runs the `go get` command to demonstrate the error:
+`script/test` runs the `go get` command to demonstrate the error:
 
 ```
 ===> Running gotest in f20...

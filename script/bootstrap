@@ -2,9 +2,6 @@
 
 source script/config
 
-rc=0
 for img in $images; do
-  test $img
-  rc=$(( $? | rc ))
+  build $img
 done
-exit $rc

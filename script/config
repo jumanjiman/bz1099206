@@ -1,6 +1,7 @@
 images="
 f20
 f20_with_reinstall
+f20_with_gcc
 rawhide
 rawhide_with_reinstall
 "

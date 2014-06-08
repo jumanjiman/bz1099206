@@ -2,6 +2,9 @@
 
 https://bugzilla.redhat.com/show_bug.cgi?id=1099206
 
+See the results of this test suite at
+https://app.wercker.com/#applications/5394ce3e85147b684f0c91a4
+
 On a fresh installation of Fedora 20 with `golang-1.2.2-7.fc20.x86_64`
 or Fedora Rawhide with `golang-1.3rc1-1.fc21.x86_64`,
 `go get` errors out with:
